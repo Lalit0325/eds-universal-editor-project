@@ -1,0 +1,156 @@
+/* Promo Banner Block
+   Mobile-first. Breakpoints: 600px tablet / 900px desktop / 1200px wide */
+
+/* Remove section wrapper max-width so the banner bleeds full width */
+.promo-banner-container .promo-banner-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
+/* Base (mobile) */
+.promo-banner {
+  background-color: var(--highlight-background-color, #f4f4f4);
+  padding: 32px 24px;
+  text-align: center;
+}
+
+.promo-banner .promo-banner-inner {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Eyebrow label */
+.promo-banner .promo-banner-eyebrow {
+  margin: 0;
+  font-size: var(--body-font-size-xs, 0.75rem);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--link-color, #0063ad);
+}
+
+/* Title */
+.promo-banner .promo-banner-title {
+  margin: 0;
+}
+
+.promo-banner .promo-banner-title h1,
+.promo-banner .promo-banner-title h2,
+.promo-banner .promo-banner-title h3,
+.promo-banner .promo-banner-title h4,
+.promo-banner .promo-banner-title h5,
+.promo-banner .promo-banner-title h6 {
+  margin: 0;
+  font-size: var(--heading-font-size-l, 1.75rem);
+  line-height: 1.2;
+  color: var(--text-color, #202020);
+}
+
+/* Body text */
+.promo-banner .promo-banner-text {
+  font-size: var(--body-font-size-m, 1rem);
+  color: var(--text-color, #202020);
+  line-height: 1.6;
+}
+
+.promo-banner .promo-banner-text p {
+  margin: 0;
+}
+
+/* CTA button */
+.promo-banner .promo-banner-cta {
+  display: flex;
+  justify-content: center;
+}
+
+.promo-banner .promo-banner-cta .button {
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: 4px;
+  font-size: var(--body-font-size-m, 1rem);
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.promo-banner .promo-banner-cta .button.primary {
+  background-color: var(--link-color, #0063ad);
+  color: var(--background-color, #fff);
+  border: 2px solid var(--link-color, #0063ad);
+}
+
+.promo-banner .promo-banner-cta .button.primary:hover,
+.promo-banner .promo-banner-cta .button.primary:focus {
+  background-color: var(--link-hover-color, #004f8a);
+  border-color: var(--link-hover-color, #004f8a);
+}
+
+/* Colour variant: blue */
+.promo-banner.blue {
+  background-color: var(--link-color, #0063ad);
+}
+
+.promo-banner.blue .promo-banner-eyebrow {
+  color: var(--background-color, #fff);
+  opacity: 0.8;
+}
+
+.promo-banner.blue .promo-banner-title h1,
+.promo-banner.blue .promo-banner-title h2,
+.promo-banner.blue .promo-banner-title h3,
+.promo-banner.blue .promo-banner-title h4,
+.promo-banner.blue .promo-banner-title h5,
+.promo-banner.blue .promo-banner-title h6 {
+  color: var(--background-color, #fff);
+}
+
+.promo-banner.blue .promo-banner-text {
+  color: var(--background-color, #fff);
+}
+
+.promo-banner.blue .promo-banner-cta .button.primary {
+  background-color: var(--background-color, #fff);
+  color: var(--link-color, #0063ad);
+  border-color: var(--background-color, #fff);
+}
+
+.promo-banner.blue .promo-banner-cta .button.primary:hover,
+.promo-banner.blue .promo-banner-cta .button.primary:focus {
+  background-color: #e6f0f8;
+  border-color: #e6f0f8;
+}
+
+/* Tablet (600px+) */
+@media (width >= 600px) {
+  .promo-banner {
+    padding: 48px 32px;
+  }
+
+  .promo-banner .promo-banner-title h1,
+  .promo-banner .promo-banner-title h2,
+  .promo-banner .promo-banner-title h3 {
+    font-size: var(--heading-font-size-xl, 2.25rem);
+  }
+}
+
+/* Desktop (900px+) */
+@media (width >= 900px) {
+  .promo-banner {
+    padding: 64px 48px;
+  }
+
+  .promo-banner .promo-banner-inner {
+    gap: 20px;
+  }
+}
+
+/* Wide desktop (1200px+) */
+@media (width >= 1200px) {
+  .promo-banner {
+    padding: 80px 64px;
+  }
+}
