@@ -3,28 +3,25 @@ import { moveInstrumentation } from '../../scripts/scripts.js';
 /**
  * Loads and decorates the promo-banner block.
  *
- * Expected authored structure (one row with three cells + optional CTA row):
- *   Row 0: Eyebrow | Title | Body Text
- *   Row 1: CTA Link (optional)
+ * Authored structure (4 cells max — xwalk/max-cells rule):
+ *   Cell 1: Eyebrow label (text)
+ *   Cell 2: Title (text)
+ *   Cell 3: Body text (richtext)
+ *   Cell 4: CTA link (aem-content picker — anchor element)
  *
- * Background colour variant is applied via block style class, e.g. "Promo Banner (blue)".
+ * Background colour variant via block name: "Promo Banner (Blue)"
+ * EDS automatically adds "blue" as a CSS class on the block element.
  *
  * @param {Element} block The block element
  */
 export default function decorate(block) {
-  // 1. Read rows delivered by the UE / EDS backend
-  const rows = [...block.children];
+  // 1. Read cells — UE delivers a single row with 4 cells
+  const row = block.firstElementChild;
+  const cells = row ? [...row.children] : [];
 
-  // Row 0: eyebrow | title | body text
-  const contentRow = rows[0];
-  // Row 1 (optional): CTA link
-  const ctaRow = rows[1];
+  const [eyebrowCell, titleCell, textCell, linkCell] = cells;
 
-  // 2. Extract individual cells
-  const [eyebrowCell, titleCell, textCell] = [...(contentRow?.children || [])];
-  const linkCell = ctaRow?.children[0];
-
-  // 3. Build the new DOM structure
+  // 2. Build the new DOM structure
   const banner = document.createElement('div');
   banner.className = 'promo-banner-inner';
 
@@ -63,7 +60,7 @@ export default function decorate(block) {
     banner.append(text);
   }
 
-  // CTA button
+  // CTA link — anchor comes directly from the aem-content picker
   if (linkCell) {
     const anchor = linkCell.querySelector('a');
     if (anchor) {
@@ -76,6 +73,6 @@ export default function decorate(block) {
     }
   }
 
-  // 4. Replace block children with the new structure
+  // 3. Replace block children with the new structure
   block.replaceChildren(banner);
 }

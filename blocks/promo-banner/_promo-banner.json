@@ -46,29 +46,6 @@
           "name": "link",
           "label": "CTA Link",
           "description": "Page or URL the call-to-action button points to"
-        },
-        {
-          "component": "text",
-          "valueType": "string",
-          "name": "linkText",
-          "label": "CTA Button Text",
-          "description": "Label shown on the call-to-action button"
-        },
-        {
-          "component": "select",
-          "name": "style",
-          "label": "Background Style",
-          "description": "Choose a background colour variant for the banner",
-          "options": [
-            {
-              "name": "Default (Light Grey)",
-              "value": ""
-            },
-            {
-              "name": "Blue",
-              "value": "blue"
-            }
-          ]
         }
       ]
     }
